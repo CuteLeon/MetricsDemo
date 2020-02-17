@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Counters\CounterContext.cs" />
+    <Compile Include="Counters\ICounterContext.cs" />
     <Compile Include="Gauges\GaugeContext.cs" />
     <Compile Include="Gauges\IGaugeContext.cs" />
     <Compile Include="MainForm.cs">

@@ -30,12 +30,14 @@
         {
             this.MainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.GaugeButton = new System.Windows.Forms.Button();
+            this.CounterButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
             // 
             this.MainPanel.Controls.Add(this.GaugeButton);
+            this.MainPanel.Controls.Add(this.CounterButton);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
@@ -51,6 +53,16 @@
             this.GaugeButton.Text = "Gauge";
             this.GaugeButton.UseVisualStyleBackColor = true;
             this.GaugeButton.Click += new System.EventHandler(this.GaugeButton_Click);
+            // 
+            // CounterButton
+            // 
+            this.CounterButton.Location = new System.Drawing.Point(193, 3);
+            this.CounterButton.Name = "CounterButton";
+            this.CounterButton.Size = new System.Drawing.Size(184, 76);
+            this.CounterButton.TabIndex = 1;
+            this.CounterButton.Text = "Counter";
+            this.CounterButton.UseVisualStyleBackColor = true;
+            this.CounterButton.Click += new System.EventHandler(this.CounterButton_Click);
             // 
             // MainForm
             // 
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel MainPanel;
         private System.Windows.Forms.Button GaugeButton;
+        private System.Windows.Forms.Button CounterButton;
     }
 }
 
