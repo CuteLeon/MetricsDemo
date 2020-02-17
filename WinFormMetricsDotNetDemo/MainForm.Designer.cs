@@ -32,6 +32,7 @@
             this.GaugeButton = new System.Windows.Forms.Button();
             this.CounterButton = new System.Windows.Forms.Button();
             this.HistogramButton = new System.Windows.Forms.Button();
+            this.MeterButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             this.MainPanel.Controls.Add(this.GaugeButton);
             this.MainPanel.Controls.Add(this.CounterButton);
             this.MainPanel.Controls.Add(this.HistogramButton);
+            this.MainPanel.Controls.Add(this.MeterButton);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
@@ -76,6 +78,16 @@
             this.HistogramButton.UseVisualStyleBackColor = true;
             this.HistogramButton.Click += new System.EventHandler(this.HistogramButton_Click);
             // 
+            // MeterButton
+            // 
+            this.MeterButton.Location = new System.Drawing.Point(3, 85);
+            this.MeterButton.Name = "MeterButton";
+            this.MeterButton.Size = new System.Drawing.Size(184, 76);
+            this.MeterButton.TabIndex = 3;
+            this.MeterButton.Text = "Meter";
+            this.MeterButton.UseVisualStyleBackColor = true;
+            this.MeterButton.Click += new System.EventHandler(this.MeterButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -95,6 +107,7 @@
         private System.Windows.Forms.Button GaugeButton;
         private System.Windows.Forms.Button CounterButton;
         private System.Windows.Forms.Button HistogramButton;
+        private System.Windows.Forms.Button MeterButton;
     }
 }
 

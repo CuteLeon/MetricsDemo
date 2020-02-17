@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using WinFormMetricsDotNetDemo.Counters;
 using WinFormMetricsDotNetDemo.Gauges;
 using WinFormMetricsDotNetDemo.Histograms;
+using WinFormMetricsDotNetDemo.Meters;
 
 namespace WinFormMetricsDotNetDemo
 {
@@ -15,14 +16,16 @@ namespace WinFormMetricsDotNetDemo
         private const string GaugeKey = "Gauge";
         private const string CounterKey = "Counter";
         private const string HistogramKey = "Histogram";
+        private const string MeterKey = "Meter";
 
         public MainForm()
         {
             this.InitializeComponent();
 
-            MetricContextDictionary.TryAdd(GaugeKey, new GaugeContext());
-            MetricContextDictionary.TryAdd(CounterKey, new CounterContext());
-            MetricContextDictionary.TryAdd(HistogramKey, new HistogramContext());
+            this.MetricContextDictionary.TryAdd(GaugeKey, new GaugeContext());
+            this.MetricContextDictionary.TryAdd(CounterKey, new CounterContext());
+            this.MetricContextDictionary.TryAdd(HistogramKey, new HistogramContext());
+            this.MetricContextDictionary.TryAdd(MeterKey, new MeterContext());
         }
 
         private void GaugeButton_Click(object sender, EventArgs e)
@@ -55,7 +58,7 @@ namespace WinFormMetricsDotNetDemo
 
         private void HistogramButton_Click(object sender, EventArgs e)
         {
-            if (!this.MetricContextDictionary.TryGetValue(GaugeKey, out var context) ||
+            if (!this.MetricContextDictionary.TryGetValue(HistogramKey, out var context) ||
                 !(context is IHistogramContext histogramContext))
             {
                 return;
@@ -65,6 +68,20 @@ namespace WinFormMetricsDotNetDemo
 
             Debug.Print($"新的订单：总计 {amount} 元");
             histogramContext.AnalyseOrderAmount(amount);
+        }
+
+        private void MeterButton_Click(object sender, EventArgs e)
+        {
+            if (!this.MetricContextDictionary.TryGetValue(MeterKey, out var context) ||
+                !(context is IMeterContext meterContext))
+            {
+                return;
+            }
+
+            var amount = Convert.ToInt64(this.unityRandom.NextDouble() * 15000);
+
+            Debug.Print($"新的订单：总计 {amount} 元");
+            _ = meterContext.CheckOrderAmount(amount);
         }
     }
 }
