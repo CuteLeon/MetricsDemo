@@ -31,6 +31,7 @@
             this.MainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.GaugeButton = new System.Windows.Forms.Button();
             this.CounterButton = new System.Windows.Forms.Button();
+            this.HistogramButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,10 +39,11 @@
             // 
             this.MainPanel.Controls.Add(this.GaugeButton);
             this.MainPanel.Controls.Add(this.CounterButton);
+            this.MainPanel.Controls.Add(this.HistogramButton);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(530, 360);
+            this.MainPanel.Size = new System.Drawing.Size(572, 360);
             this.MainPanel.TabIndex = 0;
             // 
             // GaugeButton
@@ -64,11 +66,21 @@
             this.CounterButton.UseVisualStyleBackColor = true;
             this.CounterButton.Click += new System.EventHandler(this.CounterButton_Click);
             // 
+            // HistogramButton
+            // 
+            this.HistogramButton.Location = new System.Drawing.Point(383, 3);
+            this.HistogramButton.Name = "HistogramButton";
+            this.HistogramButton.Size = new System.Drawing.Size(184, 76);
+            this.HistogramButton.TabIndex = 2;
+            this.HistogramButton.Text = "Histogram";
+            this.HistogramButton.UseVisualStyleBackColor = true;
+            this.HistogramButton.Click += new System.EventHandler(this.HistogramButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 360);
+            this.ClientSize = new System.Drawing.Size(572, 360);
             this.Controls.Add(this.MainPanel);
             this.Name = "MainForm";
             this.Text = "MainForm";
@@ -82,6 +94,7 @@
         private System.Windows.Forms.FlowLayoutPanel MainPanel;
         private System.Windows.Forms.Button GaugeButton;
         private System.Windows.Forms.Button CounterButton;
+        private System.Windows.Forms.Button HistogramButton;
     }
 }
 

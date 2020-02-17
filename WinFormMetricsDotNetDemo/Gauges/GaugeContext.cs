@@ -16,14 +16,14 @@ namespace WinFormMetricsDotNetDemo.Gauges
         public void RecordOrderAmount(double amount)
         {
             const string GaugeName = nameof(this.RecordOrderAmount);
-            Metric.Gauge<GaugeContext>(GaugeName, () => amount, Unit.Custom("元"));
+            Metric.Gauge<GaugeContext>(GaugeName, () => amount, UnityAssist.AmountUnit);
         }
 
         /// <inheritdoc/>
         public void RecordOrderCount(int count)
         {
             const string GaugeName = nameof(this.RecordOrderCount);
-            Metric.Gauge<GaugeContext>(GaugeName, () => count, Unit.Custom("个"));
+            Metric.Gauge<GaugeContext>(GaugeName, () => count, UnityAssist.CountUnit);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using WinFormMetricsDotNetDemo.Counters;
 using WinFormMetricsDotNetDemo.Gauges;
+using WinFormMetricsDotNetDemo.Histograms;
 
 namespace WinFormMetricsDotNetDemo
 {
@@ -13,6 +14,7 @@ namespace WinFormMetricsDotNetDemo
         private readonly ConcurrentDictionary<string, MetricContextBase> MetricContextDictionary = new ConcurrentDictionary<string, MetricContextBase>();
         private const string GaugeKey = "Gauge";
         private const string CounterKey = "Counter";
+        private const string HistogramKey = "Histogram";
 
         public MainForm()
         {
@@ -20,6 +22,7 @@ namespace WinFormMetricsDotNetDemo
 
             MetricContextDictionary.TryAdd(GaugeKey, new GaugeContext());
             MetricContextDictionary.TryAdd(CounterKey, new CounterContext());
+            MetricContextDictionary.TryAdd(HistogramKey, new HistogramContext());
         }
 
         private void GaugeButton_Click(object sender, EventArgs e)
@@ -48,6 +51,20 @@ namespace WinFormMetricsDotNetDemo
 
             Debug.Print($"新增一笔订单 ...");
             counterContext.RecordNewOrder();
+        }
+
+        private void HistogramButton_Click(object sender, EventArgs e)
+        {
+            if (!this.MetricContextDictionary.TryGetValue(GaugeKey, out var context) ||
+                !(context is IHistogramContext histogramContext))
+            {
+                return;
+            }
+
+            var amount = Convert.ToInt64(this.unityRandom.NextDouble() * 10000);
+
+            Debug.Print($"新的订单：总计 {amount} 元");
+            histogramContext.AnalyseOrderAmount(amount);
         }
     }
 }

@@ -48,6 +48,8 @@
     <Compile Include="Counters\ICounterContext.cs" />
     <Compile Include="Gauges\GaugeContext.cs" />
     <Compile Include="Gauges\IGaugeContext.cs" />
+    <Compile Include="Histograms\HistogramContext.cs" />
+    <Compile Include="Histograms\IHistogramContext.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +59,7 @@
     <Compile Include="MetricContextBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnityAssist.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

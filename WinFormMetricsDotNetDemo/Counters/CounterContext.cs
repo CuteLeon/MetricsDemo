@@ -4,6 +4,9 @@ using Metrics;
 
 namespace WinFormMetricsDotNetDemo.Counters
 {
+    /// <summary>
+    /// 计数器交互类
+    /// </summary>
     public class CounterContext : MetricContextBase, ICounterContext
     {
         private readonly Counter OrderCounter;
