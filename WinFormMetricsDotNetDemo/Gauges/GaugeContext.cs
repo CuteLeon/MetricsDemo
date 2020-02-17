@@ -12,18 +12,25 @@ namespace WinFormMetricsDotNetDemo.Gauges
     /// </remarks>
     public class GaugeContext : MetricContextBase, IGaugeContext
     {
+        public double Amount { get; set; }
+        public double Count { get; set; }
+
+        public GaugeContext()
+        {
+            Metric.Gauge<GaugeContext>(nameof(this.RecordOrderAmount), () => this.Amount, UnityAssist.AmountUnit);
+            Metric.Gauge<GaugeContext>(nameof(this.RecordOrderCount), () => this.Count, UnityAssist.CountUnit);
+        }
+
         /// <inheritdoc/>
         public void RecordOrderAmount(double amount)
         {
-            const string GaugeName = nameof(this.RecordOrderAmount);
-            Metric.Gauge<GaugeContext>(GaugeName, () => amount, UnityAssist.AmountUnit);
+            this.Amount = amount;
         }
 
         /// <inheritdoc/>
         public void RecordOrderCount(int count)
         {
-            const string GaugeName = nameof(this.RecordOrderCount);
-            Metric.Gauge<GaugeContext>(GaugeName, () => count, UnityAssist.CountUnit);
+            this.Count = count;
         }
     }
 }
