@@ -33,6 +33,7 @@
             this.CounterButton = new System.Windows.Forms.Button();
             this.HistogramButton = new System.Windows.Forms.Button();
             this.MeterButton = new System.Windows.Forms.Button();
+            this.TimerButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             this.MainPanel.Controls.Add(this.CounterButton);
             this.MainPanel.Controls.Add(this.HistogramButton);
             this.MainPanel.Controls.Add(this.MeterButton);
+            this.MainPanel.Controls.Add(this.TimerButton);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
@@ -88,6 +90,16 @@
             this.MeterButton.UseVisualStyleBackColor = true;
             this.MeterButton.Click += new System.EventHandler(this.MeterButton_Click);
             // 
+            // TimerButton
+            // 
+            this.TimerButton.Location = new System.Drawing.Point(193, 85);
+            this.TimerButton.Name = "TimerButton";
+            this.TimerButton.Size = new System.Drawing.Size(184, 76);
+            this.TimerButton.TabIndex = 4;
+            this.TimerButton.Text = "Timer";
+            this.TimerButton.UseVisualStyleBackColor = true;
+            this.TimerButton.Click += new System.EventHandler(this.TimerButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.Button CounterButton;
         private System.Windows.Forms.Button HistogramButton;
         private System.Windows.Forms.Button MeterButton;
+        private System.Windows.Forms.Button TimerButton;
     }
 }
 

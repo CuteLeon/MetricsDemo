@@ -6,6 +6,7 @@ using WinFormMetricsDotNetDemo.Counters;
 using WinFormMetricsDotNetDemo.Gauges;
 using WinFormMetricsDotNetDemo.Histograms;
 using WinFormMetricsDotNetDemo.Meters;
+using WinFormMetricsDotNetDemo.Timers;
 
 namespace WinFormMetricsDotNetDemo
 {
@@ -17,6 +18,7 @@ namespace WinFormMetricsDotNetDemo
         private const string CounterKey = "Counter";
         private const string HistogramKey = "Histogram";
         private const string MeterKey = "Meter";
+        private const string TimerKey = "Timer";
 
         public MainForm()
         {
@@ -26,6 +28,7 @@ namespace WinFormMetricsDotNetDemo
             this.MetricContextDictionary.TryAdd(CounterKey, new CounterContext());
             this.MetricContextDictionary.TryAdd(HistogramKey, new HistogramContext());
             this.MetricContextDictionary.TryAdd(MeterKey, new MeterContext());
+            this.MetricContextDictionary.TryAdd(TimerKey, new TimerContext());
         }
 
         private void GaugeButton_Click(object sender, EventArgs e)
@@ -82,6 +85,20 @@ namespace WinFormMetricsDotNetDemo
 
             Debug.Print($"新的订单：总计 {amount} 元");
             _ = meterContext.CheckOrderAmount(amount);
+        }
+
+        private void TimerButton_Click(object sender, EventArgs e)
+        {
+            if (!this.MetricContextDictionary.TryGetValue(TimerKey, out var context) ||
+                !(context is ITimerContext timerContext))
+            {
+                return;
+            }
+
+            var elapsedTime = Convert.ToInt64(this.unityRandom.NextDouble() * 10000);
+
+            Debug.Print($"任务耗时：{elapsedTime}");
+            timerContext.RecordElaspedTime(elapsedTime);
         }
     }
 }

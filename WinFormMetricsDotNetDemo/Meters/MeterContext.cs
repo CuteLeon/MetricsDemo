@@ -14,7 +14,6 @@ namespace WinFormMetricsDotNetDemo.Meters
             this.ExcessMeter = Metric.Meter<MeterContext>(nameof(this.ExcessMeter), UnityAssist.ExcessUnit, TimeUnit.Minutes);
         }
 
-
         /// <inheritdoc/>
         public bool CheckOrderAmount(double amount)
         {

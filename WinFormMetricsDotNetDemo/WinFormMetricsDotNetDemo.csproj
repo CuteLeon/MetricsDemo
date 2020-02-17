@@ -61,6 +61,8 @@
     <Compile Include="MetricContextBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Timers\ITimerContext.cs" />
+    <Compile Include="Timers\TimerContext.cs" />
     <Compile Include="UnityAssist.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
